@@ -11,7 +11,7 @@ public class SafariDriverUtil implements WebDriverSelection {
     private WebDriver driver;
 
     @Override
-    public void spinUpDriver() {
+    public void selectDriver() {
         driver = new SafariDriver();
         driver.manage()
                 .timeouts()
