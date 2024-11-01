@@ -27,8 +27,7 @@ public class Main {
         setDriver(driverService.getDriver());
         getDriver().manage().timeouts().implicitlyWait(IMPLICIT_WAIT_IN_SECONDS);
         getDriver().manage().window().maximize();
-        getDriver().get("https://demoblaze.com/");
-
+        getDriver().get("https://demoqa.com/");
     }
 
     @AfterMethod
