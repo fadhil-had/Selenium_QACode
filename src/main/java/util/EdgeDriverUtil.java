@@ -11,7 +11,7 @@ public class EdgeDriverUtil implements WebDriverSelection {
     private WebDriver driver;
 
     @Override
-    public void spinUpDriver() {
+    public void selectDriver() {
         driver = new EdgeDriver();
         driver.manage()
                 .timeouts()

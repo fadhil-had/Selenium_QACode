@@ -10,7 +10,9 @@ public class ChromeDriverUtil implements WebDriverSelection {
     private WebDriver driver;
 
     @Override
-    public void spinUpDriver() {
+    public void selectDriver() {
+        //System.setProperty("webdriver.chrome.driver", "D:\\ChromeDriver\\chromedriver.exe");
+
         driver = new ChromeDriver();
         driver.manage()
                 .timeouts()
