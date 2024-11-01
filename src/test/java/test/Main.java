@@ -1,6 +1,9 @@
 package test;
 
+import constant.commonConstant;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 import util.WebDriverFactory;
 
@@ -8,17 +11,14 @@ import static constant.commonConstant.*;
 import static util.WebDriverFactory.getDriver;
 import static util.WebDriverFactory.setDriver;
 import util.WebDriverSelection;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Main {
     private final WebDriverSelection driverService = new WebDriverFactory().getDriverService();
-    public WebDriverWait wait;
-    private final static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     @BeforeSuite
     public void oneTimeSetup() {
-        logger.debug("Test execution browser: {}", BROWSER_NAME);
+        logger.info("Test execution browser: {}", BROWSER_NAME);
     }
 
     @BeforeMethod
