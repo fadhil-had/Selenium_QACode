@@ -14,13 +14,13 @@ public class commonConstant {
     public static final Duration EXPLICIT_WAIT_IN_SECONDS = Duration.ofSeconds(60);
 
     public static String getBrowserName(){
-        String browserNameFromPomXml = System.getProperty("browser");
+        String browserNameFromProperties = System.getProperty("browser");
         String browserName;
 
-        if (browserNameFromPomXml != null)
-            browserName = browserNameFromPomXml;
+        if (browserNameFromProperties != null)
+            browserName = browserNameFromProperties;
         else {
-            logger.warn("There is no browser on properties use default.");
+            logger.warn("There is no browser on properties use default");
             browserName = CHROME;
         }
 
