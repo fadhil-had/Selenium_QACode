@@ -1,18 +1,17 @@
-package util;
+package util.browser;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static constant.commonConstant.IMPLICIT_WAIT_IN_SECONDS;
 
 
-public class EdgeDriverUtil implements WebDriverSelection {
+public class FirefoxDriverUtil implements WebDriverSelection {
     private WebDriver driver;
 
     @Override
     public void selectDriver() {
-        driver = new EdgeDriver();
+        driver = new FirefoxDriver();
         driver.manage()
                 .timeouts()
                 .implicitlyWait(IMPLICIT_WAIT_IN_SECONDS);

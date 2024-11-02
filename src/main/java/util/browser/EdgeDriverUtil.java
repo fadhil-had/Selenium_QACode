@@ -1,19 +1,17 @@
-package util;
+package util.browser;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 import static constant.commonConstant.IMPLICIT_WAIT_IN_SECONDS;
 
 
-public class ChromeDriverUtil implements WebDriverSelection {
+public class EdgeDriverUtil implements WebDriverSelection {
     private WebDriver driver;
 
     @Override
     public void selectDriver() {
-        //System.setProperty("webdriver.chrome.driver", "D:\\ChromeDriver\\chromedriver.exe");
-
-        driver = new ChromeDriver();
+        driver = new EdgeDriver();
         driver.manage()
                 .timeouts()
                 .implicitlyWait(IMPLICIT_WAIT_IN_SECONDS);
