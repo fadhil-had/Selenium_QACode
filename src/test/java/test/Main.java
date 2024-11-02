@@ -1,24 +1,29 @@
 package test;
 
-import org.openqa.selenium.WebDriver;
+import com.github.javafaker.Faker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
+import pages.BasePage;
+import pages.elements.TextBoxPage;
 import util.browser.WebDriverFactory;
+import constant.commonConstant;
 
 import static constant.commonConstant.*;
-import static util.browser.WebDriverFactory.getDriver;
-import static util.browser.WebDriverFactory.setDriver;
 import util.browser.WebDriverSelection;
-import util.BasePage;
 
-public class Main extends BasePage {
+import java.sql.Timestamp;
+
+public class Main {
     private final WebDriverSelection driverService = new WebDriverFactory().getDriverService();
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
-    public Main(WebDriver driver) {
-        super(driver);
-    }
+    public commonConstant common;
+    public BasePage basePage;
+    public TextBoxPage textBoxPage;
+    public Faker faker;
+
+    long epoch = System.currentTimeMillis();
 
     @BeforeSuite
     public void oneTimeSetup() {
@@ -28,14 +33,18 @@ public class Main extends BasePage {
     @BeforeMethod
     public void openBrowser() {
         driverService.selectDriver();
-        setDriver(driverService.getDriver());
-        getDriver().manage().timeouts().implicitlyWait(IMPLICIT_WAIT_IN_SECONDS);
-        getDriver().manage().window().maximize();
-        getDriver().get(URL);
+        driver = driverService.getDriver();
+        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT_IN_SECONDS);
+        driver.manage().window().maximize();
+        driver.get(URL);
+
+        faker = new Faker();
+        basePage = new BasePage(driver);
+        textBoxPage = new TextBoxPage(driver);
     }
 
     @AfterMethod
     public void after() {
-        driverService.closeDriver();
+        //driverService.closeDriver();
     }
 }

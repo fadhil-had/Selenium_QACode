@@ -32,14 +32,4 @@ public class WebDriverFactory{
 
         return driver;
     }
-
-    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-
-    public static WebDriver getDriver() {
-        return driver.get();
-    }
-
-    public static void setDriver(WebDriver driver) {
-        WebDriverFactory.driver.set(driver);
-    }
 }
