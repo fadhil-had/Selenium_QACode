@@ -45,6 +45,6 @@ public class Main {
 
     @AfterMethod
     public void after() {
-        //driverService.closeDriver();
+        driverService.closeDriver();
     }
 }
